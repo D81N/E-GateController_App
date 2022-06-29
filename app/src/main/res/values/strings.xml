@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">E-GateController</string>
+    <string name="gate_icon">Gate</string>
+    <string name="app_name_text">E-Gate Controller</string>
+</resources>
