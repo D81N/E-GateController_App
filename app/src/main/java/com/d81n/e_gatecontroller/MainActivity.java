@@ -1,15 +1,10 @@
 package com.d81n.e_gatecontroller;
 
 import androidx.appcompat.app.AppCompatActivity;
-
-
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 
-import java.io.IOException;
-
-import java.util.List;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -28,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void CloseAllGates(View view) {
+
         Call<String> call = apiInterface.CloseAllGatesRequest();
         call.enqueue(new Callback<String>() {
             @Override
@@ -89,4 +85,5 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
 }
