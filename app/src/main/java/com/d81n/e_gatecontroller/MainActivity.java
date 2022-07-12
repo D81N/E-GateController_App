@@ -4,6 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.webkit.WebChromeClient;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -12,7 +15,11 @@ import retrofit2.Response;
 public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = "MainActivity";
+
     ApiInterface apiInterface;
+    WebView webView;
+
+    String cameraURL = "http://192.168.4.4/";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,6 +27,13 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         apiInterface = ApiClient.getClient().create(ApiInterface.class);
+
+        webView = findViewById(R.id.camView);
+        webView.setWebChromeClient(new WebChromeClient());
+
+        webView.getSettings().setJavaScriptEnabled(true);
+        webView.getSettings().setAppCacheEnabled(false);
+        webView.loadUrl(cameraURL);
     }
 
     public void CloseAllGates(View view) {
